@@ -13,12 +13,12 @@ interface CustomEffects {
 }
 
 interface CustomTags {
-  [tagId: string]: string;
+  [tagId: string]: string[];
 }
 
 interface Custom {
   customeffects: CustomEffects;
-  customtag: CustomTags;
+  customtags: CustomTags;
 }
 interface Perks {
   availableEffects: string[];
@@ -32,7 +32,7 @@ interface Perks {
 export class ManagePerksComponent implements OnInit {
   CUSTOM: Custom = {
     customeffects: {},
-    customtag: {},
+    customtags: {},
   };
   accountEffectControlMap: {
     [key: string]: { ctrl: FormControl; filter: Observable<string[]> };
@@ -81,7 +81,7 @@ export class ManagePerksComponent implements OnInit {
       this.updateEffectControls();
       this.showNewEffectDialog = false;
     } else if (type == "tag") {
-      this.CUSTOM["customtag"][this.newTagAccountId] = "";
+      this.CUSTOM["customtags"][this.newTagAccountId] = [];
       this.showNewTagDialog = false;
     }
   }
@@ -121,7 +121,7 @@ export class ManagePerksComponent implements OnInit {
     );
   }
   onTagUpdate(event: any, account_id: string) {
-    this.CUSTOM.customtag[account_id] = event.target.value;
+    this.CUSTOM.customtags[account_id] = event.target.value;
   }
   onSubmt() {
     this.adminService.updatePerks(this.CUSTOM).subscribe((data) => {
