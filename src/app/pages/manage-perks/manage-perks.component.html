@@ -58,7 +58,7 @@
         </mat-form-field>
         <button class="save-btn" mat-raised-button color="primary" (click)="onSaveId('tag')">save</button>
       </div>
-      <div class="player-tag" *ngFor="let account of CUSTOM['customtag'] | keyvalue">
+      <div class="player-tag" *ngFor="let account of CUSTOM['customtags'] | keyvalue">
         <div class="player">
           {{account.key}}
         </div>
