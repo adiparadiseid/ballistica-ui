@@ -31,19 +31,21 @@
             <li>Linked Accounts: {{ PROFILES[profile].display_string}}</li>
             <li *ngIf="getRestrictionInfo(profile)">isBanned: {{getRestrictionInfo(profile).isBan }}</li>
             <li *ngIf="getRestrictionInfo(profile)">isMuted: {{getRestrictionInfo(profile).isMuted }}</li>
-            <li>Account Created On: {{PROFILES[profile].accountAge }}</li>
-            <li>RegisteredOn: {{ getDateTime(PROFILES[profile].registerOn) }}</li>
+            <li>Account Created On: {{PROFILES[profile].account_age }}</li>
+            <li>RegisteredOn: {{ getDateTime(PROFILES[profile].register_on) }}</li>
             <li>CanStartKickVote: {{PROFILES[profile].canStartKickVote }}</li>
-            <li>Active SpamCount: {{PROFILES[profile].spamCount}}</li>
-            <li>LastSpam: {{ getDateTime(PROFILES[profile].lastSpam) }}</li>
-            <li>WarnCount: {{PROFILES[profile].warnCount }}</li>
-            <li>LastWarned: {{ getDateTime(PROFILES[profile].lastWarned) }}</li>
-            <li>Verified:{{PROFILES[profile].verified }}</li>
-            <li>LastJoin: {{ getDateTime(PROFILES[profile].lastJoin) }}</li>
-            <li>LastIP: {{PROFILES[profile].lastIP }}</li>
-            <li>DeviceUUID: {{PROFILES[profile].deviceUUID}}</li>
-            <li>LastMsgTime: {{ getDateTime(PROFILES[profile].lastMsgTime)}}</li>
-            <li>LastMsg: {{PROFILES[profile].lastMsg}}</li>
+            <li>Active SpamCount: {{PROFILES[profile].spam_count}}</li>
+            <li>LastSpam: {{ getDateTime(PROFILES[profile].last_spam) }}</li>
+            <li>WarnCount: {{PROFILES[profile].warned_count }}</li>
+            <li>LastWarned: {{ getDateTime(PROFILES[profile].last_warned) }}</li>
+            <li>Verified: {{ "Yes" if PROFILES[profile].verified else "No" }}</li>
+            <li>LastJoin: {{ getDateTime(PROFILES[profile].last_join) }}</li>
+            <li>LastIP: {{PROFILES[profile].last_ip }}</li>
+            <li>DeviceUUID: {{PROFILES[profile].device_uuid}}</li>
+            <li>LastMsgTime: {{ getDateTime(PROFILES[profile].last_msg_time)}}</li>
+            <li>LastMsg: {{PROFILES[profile].last_msg}}</li>
+            <li>Kicked Count: {{PROFILES[profile].kicked_count}}</li>
+            <li>Banned Count: {{PROFILES[profile].banned_count}}</li>
             <li *ngIf="getRestrictionInfo(profile)">Extra: {{getRestrictionInfo(profile).extra}}</li>
           </ul>
           <div class="options" *ngIf="getRestrictionInfo(profile)">
